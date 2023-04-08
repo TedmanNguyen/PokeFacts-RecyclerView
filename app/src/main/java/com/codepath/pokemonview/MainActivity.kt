@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.DividerItemDecoration
 import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import okhttp3.Headers
@@ -55,6 +56,8 @@ class MainActivity : AppCompatActivity() {
                 val adapter = PokeAdapter(pokeList)
                 rvPoke.layoutManager = LinearLayoutManager(this@MainActivity)
                 rvPoke.adapter = PokeAdapter(pokeList)
+                rvPoke.addItemDecoration(DividerItemDecoration(this@MainActivity, LinearLayoutManager.VERTICAL))
+
             }
 
             override fun onFailure(

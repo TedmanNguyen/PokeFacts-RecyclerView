@@ -4,6 +4,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 class PokeAdapter(private val pokeList: MutableList<Triple<String, String, String>>) : RecyclerView.Adapter<PokeAdapter.ViewHolder>() {
@@ -34,8 +35,14 @@ class PokeAdapter(private val pokeList: MutableList<Triple<String, String, Strin
             .into(holder.pokeImage)
 
 
+
         val pokeNameText = holder.pokeName
+        val pokemonNameFetch = pokeList[position].second
         pokeNameText.text = pokeList[position].second
+
+        holder.pokeImage.setOnClickListener{
+            Toast.makeText(holder.itemView.context, "You tapped on $pokemonNameFetch! ", Toast.LENGTH_SHORT).show()
+        }
 
         val pokeWeightText = holder.pokeWeight
         pokeWeightText.text = pokeList[position].third
